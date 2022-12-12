@@ -77,7 +77,7 @@ local M = {
     },
 
     fold = {
-      open = "Z",
+      open = "zx",
       close = "zz",
     },
 

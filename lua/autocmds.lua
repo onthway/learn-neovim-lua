@@ -26,7 +26,7 @@ autocmd("BufWritePre", {
   group = myAutoGroup,
   pattern = { "*.lua", "*.py", "*.sh" },
   callback = function()
-    vim.lsp.buf.format()
+    vim.lsp.buf.format({ async = True })
   end,
 })
 

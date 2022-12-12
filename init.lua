@@ -25,3 +25,5 @@ require("dap.setup")
 -- utils
 -- 复制到windows剪贴板
 -- require('utils.fix-yank')
+-- jupyter
+--require("jupyter")

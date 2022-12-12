@@ -38,11 +38,13 @@ null_ls.setup({
     }),
     -- rustfmt
     -- rustup component add rustfmt
-    formatting.rustfmt,
+    -- formatting.rustfmt,
     -- Python
     -- pip install black
     -- asdf reshim python
     formatting.black.with({ extra_args = { "--fast" } }),
+    formatting.isort,
+    formatting.autopep8,
     -----------------------------------------------------
     -- Ruby
     -- gem install rubocop
@@ -82,8 +84,9 @@ null_ls.setup({
   -- #{s}: source name (defaults to null-ls if not specified)
   -- #{c}: code (if available)
   diagnostics_format = "[#{s}] #{m}",
-  on_attach = function(_)
-    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.formatting()']])
+  --没有用
+  on_attach = function()
+    vim.cmd([[ command! Format execute 'lua vim.lsp.buf.format({async=True})']])
     -- if client.resolved_capabilities.document_formatting then
     --   vim.cmd("autocmd BufWritePre <buffer> lua vim.lsp.buf.formatting_sync()")
     -- end

@@ -85,6 +85,10 @@ keymap("x", "K", ":move '<-2<CR>gv-gv")
 -- 在visual mode 里粘贴不要复制
 keymap("x", "p", '"_dP')
 
+--iron
+--vim.cmd([[ nmap ]x ctrih/^# %%<CR><CR> ]])
+--vim.cmd([[  nnoremap <silent><c-v> <Plug>(iron-visual-send)  ]])
+--vim.cmd([[  nnoremap <C-l> <Plug>(iron-send-line)  ]])
 ------------------------------------------------------------------
 -- s_windows 分屏快捷键
 ------------------------------------------------------------------
@@ -125,7 +129,7 @@ end
 keymap("n", keys.fold.open, ":foldopen<CR>")
 keymap("n", keys.fold.close, ":foldclose<CR>")
 
-keymap("n", keys.format, "<cmd>lua vim.lsp.buf.formatting()<CR>")
+keymap("n", keys.format, "<cmd>lua vim.lsp.buf.formatting({async=True})<CR>")
 
 -- Esc 回 Normal 模式
 keymap("t", keys.terminal_to_normal, "<C-\\><C-n>")

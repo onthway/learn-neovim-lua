@@ -236,7 +236,7 @@ packer.startup({
     use("onsails/lspkind-nvim")
     use("tami5/lspsaga.nvim")
     -- 代码格式化
-    use("mhartington/formatter.nvim")
+    -- use("mhartington/formatter.nvim")
     use({ "jose-elias-alvarez/null-ls.nvim", requires = "nvim-lua/plenary.nvim" })
     -- TypeScript 增强
     use({ "jose-elias-alvarez/nvim-lsp-ts-utils", requires = "nvim-lua/plenary.nvim" })
@@ -312,7 +312,54 @@ packer.startup({
 
     -- go
     use("leoluz/nvim-dap-go")
+    -- dash
+    use({
+      "mrjones2014/dash.nvim",
+      run = "make install",
+      config = function()
+        require("plugin-config.dash")
+      end,
+    })
 
+    use({
+      "folke/which-key.nvim",
+      config = function()
+        require("which-key").setup({
+          -- your configuration comes here
+          -- or leave it empty to use the default settings
+          -- refer to the configuration section below
+        })
+      end,
+    })
+    -- auto save
+    use({
+      -- "pocco81/auto-save.nvim",
+      "/Volumes/work/CloudStation/debug/hacklife/KG/projects/nvimplugin/auto-save.nvim",
+      config = function()
+        require("plugin-config.auto-save")
+      end,
+    })
+    -- jupyter notebook in neovim --
+    use("luk400/vim-jukit")
+    --use("untitled-ai/jupyter_ascending.vim")
+    --此插件久未更新，对文件名有特殊要求，亮点是更新时可实时进行
+    --use("bfredl/nvim-ipy")
+    --[[ not work
+
+    use({
+      "hkupty/iron.nvim",
+      config = function()
+        require("plugin-config.iron")
+      end,
+    })
+
+    ]]
+    --use("GCBallesteros/jupytext.vim")
+    --此插件久未更新，同步对大文件不友好
+    --use("kana/vim-textobj-line")
+    --use("kana/vim-textobj-user")
+    --use("GCBallesteros/vim-textobj-hydrogen")
+    -- jupyter notebook neovim --
     --[[ not work
 
     use({
@@ -347,6 +394,7 @@ packer.startup({
       -- default_url_format = "https://mirror.ghproxy.com/https://github.com/%s",
       -- default_url_format = "https://gitcode.net/mirrors/%s",
       -- default_url_format = "https://gitclone.com/github.com/%s",
+      clone_timeout = 900,
     },
     -- display = {
     -- 使用浮动窗口显示

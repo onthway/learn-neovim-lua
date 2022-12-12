@@ -1,6 +1,6 @@
 local M = {}
 
-M.defaultIM = "com.apple.keylayout.ABC"
+M.defaultIM = "com.apple.keylayout.US"
 M.currentIM = M.defaultIM
 
 local macInsertEnter = function()
